@@ -51,5 +51,8 @@ public class Login extends HttpServlet {
                 }
             }
         }
+        if (request.getParameter("new-acc") != null) {
+            request.getRequestDispatcher("new_acc.jsp").forward(request, response);
+        }
     }
 }

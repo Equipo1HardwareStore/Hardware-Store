@@ -314,6 +314,9 @@ td input {
     display: flex;
     justify-content: center;
     width: 100%;
+    overflow: auto;
+    max-height: 40vh;
+
 
 }
 #tb-report {
@@ -353,6 +356,26 @@ td input {
 
 #tituloReporte {
     color: #001233;
+}
+
+.pager{
+    text-align:center;
+    margin: 5px 0;
+}
+
+.pager span{
+    display: inline-block;
+    width: 1.5em;
+    aspect-ratio: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    color: #001233;
+}
+
+.pager span.active{
+    background-color: #0466C8;
+    color: white;
 }
 
 @media only screen and (max-width: 600px) {

@@ -31,7 +31,8 @@ public class ProveedoresDAO {
                       );
            }
        }catch (SQLException e){
-           JOptionPane.showMessageDialog(null, "Error"+e);
+           System.out.println(e);
+//           JOptionPane.showMessageDialog(null, "Error"+e);
        }
        return proveedor;
     }
@@ -48,7 +49,8 @@ public class ProveedoresDAO {
             statement.setString(5,prveedor.getPhone());
             result = statement.executeUpdate() > 0;
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error"+e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error"+e);
         }
         return result;
     }
@@ -65,7 +67,8 @@ public class ProveedoresDAO {
             statement.setString(5, proveedor.getNit());
             result = statement.executeUpdate() > 0;
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error"+e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error"+e);
         }
         return result;
     }
@@ -78,7 +81,8 @@ public class ProveedoresDAO {
             statement.setString(1,nit);
             result = statement.executeUpdate() > 0;
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error"+e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error"+e);
         }
         return result;
     }

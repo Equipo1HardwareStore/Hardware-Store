@@ -28,7 +28,8 @@ public class ClientesDAO {
             result = statement.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error" + e);
         }
         return result;
     }
@@ -48,7 +49,8 @@ public class ClientesDAO {
                         resultSet.getString(5));
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error" + e);
         }
         return cliente;
     }
@@ -67,7 +69,8 @@ public class ClientesDAO {
             result = statement.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error" + e);
         }
         return result;
     }
@@ -81,7 +84,8 @@ public class ClientesDAO {
             statement.setInt(1, cedula);
             result = statement.executeUpdate() > 0;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error" + e);
         }
         return result;
     }
@@ -101,7 +105,8 @@ public class ClientesDAO {
                 listaClientes.add(clienteC);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al cargar clientes" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error al cargar clientes" + e);
         }
         return listaClientes;
     }

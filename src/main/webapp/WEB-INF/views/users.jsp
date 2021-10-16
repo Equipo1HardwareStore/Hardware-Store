@@ -37,7 +37,8 @@
                 <label for="name">Nombre Completo</label>
                 <input type="text" id="name" name="name" value="<%=request.getAttribute("USER") != null ? ((UsuariosDTO) request.getAttribute("USER")).getName() : ""%>"/>
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" value="<%=request.getAttribute("USER") != null ? ((UsuariosDTO) request.getAttribute("USER")).getPassword() : ""%>"/>
+<%--                <input type="password" id="password" name="password" value="<%=request.getAttribute("USER") != null ? ((UsuariosDTO) request.getAttribute("USER")).getPassword() : ""%>"/>--%>
+                <input type="password" id="password" name="password" value=""/>
                 <label for="user">Usuario</label>
                 <input type="text" id="user" name="user" value="<%=request.getAttribute("USER") != null ? ((UsuariosDTO) request.getAttribute("USER")).getUser() : ""%>"/>
             </div>

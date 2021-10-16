@@ -19,6 +19,10 @@
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:3.6.0" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.4" />
+          <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.7.4" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

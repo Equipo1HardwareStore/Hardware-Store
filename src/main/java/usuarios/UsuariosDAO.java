@@ -2,6 +2,7 @@ package usuarios;
 
 import Conexion.Conexion;
 import clientes.ClientesDTO;
+import utils.PasswordCrypto;
 
 import javax.swing.*;
 import java.sql.*;
@@ -26,7 +27,7 @@ public class UsuariosDAO {
            result = statement.executeUpdate() > 0;
 
        }catch(SQLException e){
-           JOptionPane.showMessageDialog(null, "Error"+e);
+           System.out.println(e);
        }
        return result;
    }
@@ -46,7 +47,28 @@ public class UsuariosDAO {
                         resultSet.getString(2));
             }
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error"+e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error"+e);
+        }
+        return user;
+    }
+
+    public UsuariosDTO searchByEmail(String email){
+        UsuariosDTO user = null;
+        try {
+            String query = "select * from Usuarios where email_usuario=?";
+            statement = con.prepareStatement(query);
+            statement.setString(1,email);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                user = new UsuariosDTO(Integer.parseInt(resultSet.getString(1)),
+                        resultSet.getString(5),
+                        resultSet.getString(4),
+                        resultSet.getString(3),
+                        resultSet.getString(2));
+            }
+        }catch (SQLException e){
+            System.out.println(e);
         }
         return user;
     }
@@ -64,7 +86,8 @@ public class UsuariosDAO {
             result = statement.executeUpdate() > 0;
 
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error"+e);
+//            JOptionPane.showMessageDialog(null, "Error"+e);
+            System.out.println(e);
         }
         return result;
     }
@@ -77,7 +100,8 @@ public class UsuariosDAO {
             statement.setInt(1, cedula);
             result = statement.executeUpdate() > 0;
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error"+e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error"+e);
         }
         return result;
     }
@@ -105,6 +129,24 @@ public class UsuariosDAO {
             System.out.println(e);
 
         }return listaUsuarios;
+    }
+
+    public boolean changePassword(String password, int cedula){
+        boolean result = false;
+        String hashedPassword = PasswordCrypto.hashPassword(password);
+
+        try {
+            String query = "update Usuarios set password=? where cedula_usuario=?";
+            statement = con.prepareStatement(query);
+            statement.setString(1, hashedPassword);
+            statement.setInt(2,cedula);
+
+            result = statement.executeUpdate()>0;
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+       return result;
     }
 
 }

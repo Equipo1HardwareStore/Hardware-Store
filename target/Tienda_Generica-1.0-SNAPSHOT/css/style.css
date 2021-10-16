@@ -16,7 +16,7 @@ body {
 
 .login-box {
     max-width: 380px;
-    border : none;
+    border: none;
     /*border: 1px solid #001233;*/
     background-color: white;
     border-radius: 15px;
@@ -126,11 +126,213 @@ input[class="register-acc"]:hover {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.error-message{
+.error-message {
     color: red;
     font-size: 8px;
 }
 
+.landing-content {
+    display: flex;
+    background-color: #efefef;
+    justify-content: center;
+    padding: 15px 20px;
+    flex-direction: row;
+    width: 1200px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    gap: 2em;
+}
+
+.landing-content h1 {
+    font-size: 3em;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #001233;
+}
+
+.landing-content p {
+    margin-bottom: 50px;
+}
+
+.btn-landing {
+    background-color: #0466C8;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+}
+
+a.btn-landing {
+    color: #fff;
+}
+
+.left {
+    width: 600px;
+    /*align-self: center;*/
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*.mintic{*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    right: 50%;*/
+/*    width: 300px;*/
+/*    margin-top: -150px;*/
+/*    margin-left: -150px;*/
+/*    font-size: 2em;*/
+/*    color: #fff;*/
+/*    border-radius: 50%;*/
+/*    background-color: #0466C8;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.5s cubic-bezier(.55,0,.1,1);*/
+
+/*}*/
+.mintic {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    width: 150px;
+    aspect-ratio: 1;
+    margin-top: -500px;
+    margin-left: 520px;
+    font-size: 1.6em;
+    color: #0466C8;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(.55,0,.1,1);
+    align-items: center;
+    justify-content: center;
+    /*text-align: center;*/
+    font-family: 'Fredoka One', cursive;;
+    flex-direction: column;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+.pink{
+    color:#f52059;
+}
+.right:hover .mintic{
+    transform: rotate(-45deg) translate(0px) rotate(-315deg);
+    background-color: rgba(4,102,200, .5);
+    /*letter-spacing: 0.5em;*/
+    font-size: 4em;
+    width: 600px;
+    height: 400px;
+    margin-top: -404px;
+    margin-left: 0px;
+    border-radius:0;
+
+}
+
+.team{
+    display: flex;
+    justify-content: space-between;
+    color: #0466C8;
+    font-weight: 700;
+    border: none;
+    width: 75%;
+
+}
+.member{
+    width: 50px;
+    height: 50px;
+    /*aspect-ratio: 1;*/
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Fredoka One', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    transition: all 0.5s cubic-bezier(.55,0,.1,1);
+}
+.member span.second{
+    font-size:0px;
+    transition: all 0.5s cubic-bezier(.55,0,.1,1);
+}
+
+.member:hover {
+    /*position: fixed;*/
+    width: calc(600px - 0.25*600px);
+    height: 50px;
+    border-radius: 500px;
+    /*-webkit-transition: all 0.5s ease-out;*/
+    transition: all 0.5s ease-out;
+    /*-webkit-transition: all 0.3s ease;*/
+    /*-moz-transition: all 0.3s ease;*/
+    /*-o-transition: all 0.3s ease;*/
+    /*-ms-transition: all 0.3s ease;*/
+}
+/*.member:hover span.first{*/
+/*    display: none;*/
+/*}*/
+.member:hover span.second{
+    /*transform: scale(1.4);*/
+    display: inline;
+    font-size:30px;
+    /*-webkit-transition: all 0.5s ease-out;*/
+    /*transition: all 0.5s ease-out;*/
+}
+
+/*.member:hover:before{*/
+/*    content:"Marly Gallardo";*/
+/*}*/
+.public-form{
+    height: calc(100% - 60px);
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.public-form .info{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 25px 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.public-form form{
+    margin-top: 25px;
+}
+
+.public-form textarea{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: none;
+    height: 100px;
+    padding: 15px 10px;
+    resize: none;
+    width: 100%;
+    background-color: #eeeeee;
+}
+.recovery-box{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    justify-content: right;
+    position: relative;
+}
+
+.recover-info {
+    max-width: 380px;
+}
+
+.recover-info p{
+    text-align: left;
+    font-size: medium;
+    font-weight: 100;
+    color: #001233;
+}
 @media only screen and (max-width: 600px) {
     .login-box {
         max-width: 380px;

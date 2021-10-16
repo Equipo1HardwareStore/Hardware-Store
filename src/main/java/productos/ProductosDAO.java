@@ -4,6 +4,9 @@ import Conexion.Conexion;
 import clientes.ClientesDTO;
 
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,7 +41,8 @@ public class ProductosDAO {
 
 
         }catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Carga fallida del archivo" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Carga fallida del archivo" + e);
         }
         return producto;
     }
@@ -56,7 +60,8 @@ public class ProductosDAO {
             result = statement.executeUpdate() > 0;
 
         }catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "error" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "error" + e);
         }
         return result;
     }
@@ -80,7 +85,7 @@ public class ProductosDAO {
 
         }catch(SQLException ex) {
             System.out.println("productosDAO"+ex);
-            JOptionPane.showMessageDialog(null,"Error al registrar los productos: "+ ex);
+//            JOptionPane.showMessageDialog(null,"Error al registrar los productos: "+ ex);
         }
         return result;
     }
@@ -102,8 +107,43 @@ public class ProductosDAO {
                 listaProductos.add(producto);
             }
         } catch (SQLException e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Error al cargar clientes" + e);
         }
         return listaProductos;
+    }
+    public boolean uploadCSV(String csv) throws FileNotFoundException {
+        boolean result = false;
+
+        BufferedReader reader= new BufferedReader(new FileReader(csv));
+        String line = null;
+        try{
+            String query = "replace into Productos values(?,?,?,?,?,?)";
+            statement = con.prepareStatement(query);
+            while ((line = reader.readLine())!= null) {
+                String[] parts = line.split(",");
+                int codigo = Integer.parseInt(parts[0]);
+                Double iva = Double.parseDouble(parts[1]);
+                String nit = parts[2];
+                String nombre = parts[3];
+                Double compra = Double.parseDouble(parts[4]);
+                Double venta = Double.parseDouble(parts[5]);
+
+                statement.setInt(1,codigo);
+                statement.setDouble(2,iva);
+                statement.setString(3,nit);
+                statement.setString(4,nombre);
+                statement.setDouble(5,compra);
+                statement.setDouble(6,venta);
+                statement.addBatch();
+            }
+
+             result = statement.executeBatch().length > 0;
+            reader.close();
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return result;
     }
 }

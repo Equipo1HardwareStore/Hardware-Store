@@ -36,6 +36,7 @@ header{
 .store-name{
     font-size: x-large;
     float: left;
+    margin: 10px 0;
 }
 .exit{
     font-size: small;

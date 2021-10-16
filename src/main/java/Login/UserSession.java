@@ -28,7 +28,8 @@ public class UserSession {
                         resultSet.getString(2));
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error" + e);
+            System.out.println(e);
+//            JOptionPane.showMessageDialog(null, "Error" + e);
         }
         conn.close();
         return userSession;

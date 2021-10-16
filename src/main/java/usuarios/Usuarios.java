@@ -65,9 +65,12 @@ public class Usuarios extends SessionChecker {
             email = request.getParameter("email");
             name = request.getParameter("name");
             password = request.getParameter("password");
+            if (password.equals("")){
+                hashedPassword = usuariosDAO.searchUser(cedula).getPassword();
+            }else {
+                hashedPassword = PasswordCrypto.hashPassword(password);
+            }
             user = request.getParameter("user");
-            hashedPassword = PasswordCrypto.hashPassword(password);
-
             UsuariosDTO usuariosDTO = new UsuariosDTO(cedula, user, hashedPassword, name, email);
             if (usuariosDAO.updateUser(usuariosDTO)) {
                 request.setAttribute("RESULT", "success-msg");

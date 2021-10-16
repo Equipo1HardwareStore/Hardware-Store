@@ -6,10 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import javax.swing.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 @WebServlet(name = "Productos", value = "/Productos")
 @MultipartConfig
@@ -79,8 +76,9 @@ public class Productos extends SessionChecker {
 
         if (request.getParameter("upload")!=null) {
             Part archivo = request.getPart("archivo");
-//            String URL = "D:/Programacion Web/Proyecto Ciclo 3/Hardware-Store/src/main/webapp/documents/";
-            String URL = "D:/Programacion Web/Proyecto Ciclo 3/Hardware-Store/src/main/webapp/documents";
+//            String URL = "C:/users/user/IdeaProjects/demo/Hardware-Store/src/main/webapp/documents/";
+            String URL = "C:/productos/";
+//            String URL = "D:/Programacion Web/Proyecto Ciclo 3/Hardware-Store/src/main/webapp/documents";
 
             if(archivo.getContentType().equals("application/vnd.ms-excel")) {
                 try {
@@ -94,8 +92,10 @@ public class Productos extends SessionChecker {
                     }
                     file.close();
                     escribir.close();
-                    JOptionPane.showMessageDialog(null, "Se cargo el archivo correctamente");
-                    if(productosDAO.uploadProducto(URL + "productos.csv")) {
+                    System.out.println("Archivo copiado");
+
+//                    if(productosDAO.uploadProducto(URL + "productos.csv")) {
+                        if(productosDAO.uploadCSV(URL + "productos.csv")) {
 
 //                        response.sendRedirect("products.jsp?men=Registro de productos exitoso");
                         request.setAttribute("RESULT","success-msg");
